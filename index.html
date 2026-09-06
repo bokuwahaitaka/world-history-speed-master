@@ -23,5 +23,15 @@
 <noscript><p class="boot">この学習サイトはJavaScriptを使用します。ブラウザのJavaScriptを有効にしてから、ページを再読み込みしてください。</p></noscript>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <input id="progress-file" type="file" accept="application/json,.json" hidden>
+<script>
+document.querySelector('.skip').addEventListener('click', function(event) {
+  const main = document.getElementById('main');
+  if (main) {
+    event.preventDefault();
+    main.setAttribute('tabindex', '-1');
+    main.focus();
+  }
+});
+</script>
 </body>
 </html>
