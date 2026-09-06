@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f2eb">
+<title>World History Speed Master</title>
+<style>
+:root{--bg:#f5f2eb;--paper:#fffefa;--ink:#21332f;--muted:#6b756f;--line:#deddd3;--accent:#ac5033;--soft:#f7e8dd;--green:#e9f0eb}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7}.wrap{max-width:940px;margin:auto;padding:28px 18px 80px}.hero{padding:28px 0 20px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent)}h1{font-size:clamp(34px,7vw,58px);line-height:1.1;letter-spacing:-.04em;margin:8px 0 14px}.lead{color:var(--muted);max-width:680px;font-size:16px}.resume{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:12px 18px;border-radius:999px;background:var(--accent);color:white;text-decoration:none;font-weight:800}.progressbox{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;margin:16px 0 24px}.bar{height:8px;background:#ecebe3;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;background:var(--accent);width:0}.meta{display:flex;justify-content:space-between;gap:10px;margin-top:9px;font-size:13px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}.day{display:block;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 17px;text-decoration:none;color:var(--ink);min-height:112px;transition:.15s}.day:hover{transform:translateY(-2px);box-shadow:0 10px 28px #20333012}.day .num{font-size:12px;font-weight:900;color:var(--accent);letter-spacing:.07em}.day h2{font-size:17px;line-height:1.45;margin:7px 0 0;letter-spacing:-.02em}.day small{display:block;margin-top:8px;color:var(--muted)}.ready{border-color:#d9b6a6;background:linear-gradient(180deg,#fffefa,#fdf8f4)}.ready small{color:var(--accent);font-weight:700}.footer{margin-top:30px;color:var(--muted);font-size:13px}.disabled{opacity:.68;cursor:default}.disabled:hover{transform:none;box-shadow:none}@media(max-width:560px){.wrap{padding-left:14px;padding-right:14px}.grid{grid-template-columns:1fr}.day{min-height:96px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">WORLD HISTORY SPEED MASTER</div><h1>世界史を、<br>次へ進むだけで。</h1><p class="lead">DAY1〜DAY30を、短い解説カードで通史として進める学習サイト。読んだ位置はこの端末に保存されます。</p><a class="resume" id="resume" href="day27.html">▶ 続きから読む</a></section>
+<section class="progressbox"><div class="bar"><i id="bar"></i></div><div class="meta"><span id="progressText">進捗を読み込み中…</span><span>30 DAYS</span></div></section>
+<section class="grid" id="days"></section>
+<p class="footer">現在はサイト基盤とDAY27を先行公開中。DAY1〜30のカードを順次追加していきます。</p>
+</main>
+<script>
+const titles=[
+"古代オリエント文明とその周辺・南アジアの古代文明","中国・中南米の古代文明と秦漢帝国","中央ユーラシアと東アジア文化圏の形成","南アジア世界と東南アジア世界の展開","西アジアの国家形成とギリシア人の都市国家","ローマと地中海支配・キリスト教の成立と発展","イスラーム教の成立とヨーロッパ世界の形成","イスラーム教の伝播と西ヨーロッパ封建社会の展開","東ヨーロッパ世界の展開と西ヨーロッパ世界の変容","東アジア諸地域の自立化とモンゴル帝国","アジア交易世界の興隆とヨーロッパの海洋進出","アジア諸帝国の繁栄","ルネサンスと宗教改革","主権国家体制の成立と展開","北欧・東欧の動向と科学革命・啓蒙思想","産業革命とアメリカ独立革命","フランス革命と中南米諸国の独立","ウィーン体制とヨーロッパの再編成","アメリカ合衆国の発展・19世紀欧米文化の展開と市民文化","西アジア地域の変容と南アジアの植民地化","東南アジアの植民地化と東アジアの動揺","帝国主義と列強による世界分割","アジア諸国の改革と民族運動","第一次世界大戦とロシア革命","ヴェルサイユ体制の欧米諸国とアジア・アフリカの民族運動","ファシズムの台頭と第二次世界大戦","新しい国際秩序の形成と冷戦の展開","第三世界の台頭と冷戦体制の動揺","産業構造の変容と冷戦の終結","今日の世界と現代文明の諸相"];
+const grid=document.getElementById('days');
+for(let i=1;i<=30;i++){const a=document.createElement('a');const ready=i===27;a.className='day '+(ready?'ready':'disabled');a.href=ready?'day27.html':'#';a.innerHTML=`<div class="num">DAY ${i}</div><h2>${titles[i-1]}</h2><small>${ready?'学習カードを開く →':'準備中'}</small>`;if(!ready)a.addEventListener('click',e=>e.preventDefault());grid.appendChild(a)}
+const last=localStorage.getItem('whsm-last')||'day27.html';document.getElementById('resume').href=last;
+const completed=Number(localStorage.getItem('whsm-completed-days')||0);document.getElementById('bar').style.width=`${Math.min(100,completed/30*100)}%`;document.getElementById('progressText').textContent=completed?`完了 ${completed} / 30 DAY`:'まずはDAY27を試運転中';
+</script>
+</body></html>
