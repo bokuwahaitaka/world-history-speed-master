@@ -3,36 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f5f2eb">
-<meta name="description" content="DAY1〜30を次へ・前へで学ぶ世界史の要点整理。確認問題、目次、復習リスト、端末内の進捗保存に対応。">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="DAY1〜30を、問題形式ではなく詳しい解説記事として読む世界史学習サイト。">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>世界史を、次へ進むだけで。｜World History Speed Master</title>
+<title>World History Speed Master｜詳説版</title>
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="study.css?v=20260906a">
-<style>#page-title:focus,#lesson-title:focus,main[tabindex="-1"]:focus{outline:none}</style>
-<script defer src="content/days01-05.js?v=20260906a"></script>
-<script defer src="content/days06-10.js?v=20260906a"></script>
-<script defer src="content/days11-15.js?v=20260906a"></script>
-<script defer src="content/days16-20.js?v=20260906a"></script>
-<script defer src="content/days21-25.js?v=20260906a"></script>
-<script defer src="content/days26-30.js?v=20260906a"></script>
-<script defer src="study.js?v=20260906a"></script>
+<link rel="stylesheet" href="study.css?v=20260906-article2">
+<script defer src="content/days01-05.js?v=20260906-article2"></script>
+<script defer src="content/days06-10.js?v=20260906-article2"></script>
+<script defer src="content/days11-15.js?v=20260906-article2"></script>
+<script defer src="content/days16-20.js?v=20260906-article2"></script>
+<script defer src="content/days21-25.js?v=20260906-article2"></script>
+<script defer src="content/days26-30.js?v=20260906-article2"></script>
+<script defer src="study.js?v=20260906-article2"></script>
 </head>
 <body>
-<a class="skip" href="#main">本文へ移動</a>
-<div id="app"><main class="boot"><p class="eyebrow">WORLD HISTORY SPEED MASTER</p><h1>世界史を、次へ進むだけで。</h1><p>学習カードを読み込んでいます。</p><p>長く変わらない場合は通信を確認して再読み込みしてください。<a href="day27.html">DAY27の試作版</a>も利用できます。</p></main></div>
-<noscript><p class="boot">この学習サイトはJavaScriptを使用します。ブラウザのJavaScriptを有効にしてから、ページを再読み込みしてください。</p></noscript>
-<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-<input id="progress-file" type="file" accept="application/json,.json" hidden>
-<script>
-document.querySelector('.skip').addEventListener('click', function(event) {
-  const main = document.getElementById('main');
-  if (main) {
-    event.preventDefault();
-    main.setAttribute('tabindex', '-1');
-    main.focus();
-  }
-});
-</script>
+<a class="skip" href="#app">本文へ移動</a>
+<div id="app"><main class="boot"><p class="eyebrow">WORLD HISTORY SPEED MASTER</p><h1>詳説版を読み込んでいます。</h1><p>DAY1〜30の解説記事を準備しています。</p></main></div>
+<noscript><p class="boot">このサイトはJavaScriptを使用します。JavaScriptを有効にして再読み込みしてください。</p></noscript>
+<div id="toast" hidden></div>
+<input id="progress-file" type="file" hidden>
 </body>
 </html>
